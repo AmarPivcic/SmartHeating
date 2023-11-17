@@ -3,26 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <title>Smart Heating</title>
 </head>
-<body id="body">
-    <div>
-        <h3 id="temperature"></h3>
-        <h3 id="humidity"></h3>
-        <label>Wanted setting</label>
-        <input type="number" id="setting" readonly>
-        <button id="dec">Decrease</button>
-        <button id="inc">Increase</button>       
-    </div>   
-    <div>
-        <h3>Auto Mode: </h3> <h3 id="modeText"></h3>
-        <button id="modeToggle">Auto On/Off</button>
-        <br>
-        <label>Wanted temperature</label>
-        <input type="number" id="wantedTemp" min = "18" max = "32">
-        <button id="decTemp">Decrease</button>
-        <button id="incTemp">Increase</button>  
+<body id="body" class="body">
+    <h1 style="font-size: 3rem; text-align: center;">Smart Heating System</h1>
+    <div class="firstbox">
+        <h2 style="font-size: 2rem;" id="temperature"></h2>
+        <h2 id="humidity" style="font-size: 2rem;"></h2>
+        <label style="margin-top: 20px; font-size: 1.2rem;">Valve position</label>
+        <div class="boxItems">
+            <button id="dec" class="controlBtn radiatorBtn">-</button>
+            <div class="radiatorControl">
+                <input type="number" id="setting" min = "0" max = "6" readonly class="inputField" hidden>
+                <div class="triangle"></div>
+                <img class="radiatorImg" id="radiatorImg" src="./images/Radiator.png" alt="Radiator valve"> 
+            </div>
+            <button id="inc" class="controlBtn radiatorBtn">+</button>   
+        </div>  
+    </div>  
+    
+    <div class="secondbox">
+        <h3 style="font-size: 2rem;">Auto Mode</h3> <h3 id="modeText" hidden></h3>
+        <input type="checkbox" id="switch" class="checkbox">
+        <label for="switch" class="switch-label"></label>
+        <label style="margin-top: 10px; font-size: 1.2rem;">Wanted temperature</label>
+        <div class="boxItems">
+            <button id="decTemp" class="controlBtn">-</button>
+            <input type="number" id="wantedTemp" min = "18" max = "32" readonly class="inputField" hidden>
+            <p id="temperatureValue" class="temperatureValue"></p>
+            <button id="incTemp" class="controlBtn">+</button>
+        </div>            
     </div>
 <script src="./index.js" type="module"></script>
 </body>
