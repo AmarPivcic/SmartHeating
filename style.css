@@ -1,4 +1,142 @@
 *{
     padding: 0;
     margin: 0;
+    color: white;
+    font-family: 'Lato', sans-serif;
 }
+
+.body{
+    background-color: rgb(15,15,15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+}
+
+.firstbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.secondbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxItems{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.controlBtn{
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: rgb(15,15,15);
+    font-size: 2rem;
+    line-height: 0;
+}
+
+.radiatorBtn{
+    margin-top: 20px;
+}
+
+.radiatorControl{
+    margin-top: -30px;
+}
+
+.inputField{
+    height: 30px;
+    width: 100px;
+    border: none;
+    border-radius: 20px;
+    color: rgb(15,15,15);
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.radiatorImg{
+    height: 200px;
+    width: 200px;
+    transition: 0.5s;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.triangle {
+    margin-top: 30px;
+    rotate: 180deg;
+    position: relative;
+    top: 5px;
+    left: 105px;
+    z-index: 2;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid red;
+  }
+
+.temperatureValue{
+    font-size: 2rem;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.checkbox {
+    display: none;
+  }
+  
+  
+.switch-label {
+    display: inline-block;
+    width: 120px;
+    height: 60px;
+    background-color: #ccc;
+    border-radius: 35px;
+    position: relative;
+    cursor: pointer;
+    background-color: red;
+    margin-top: 10px;
+  }
+  
+
+.switch-label:after {
+    content: '';
+    position: absolute;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background-color: white;
+    top: 1px;
+    left: 1px;
+    transition: 0.3s;
+    background-color: white;
+  }
+  
+
+.checkbox:checked + .switch-label:after {
+    left: 61px;
+    background-color: white;
+  }
+
+  
+
+.checkbox:checked + .switch-label {
+    background-color: #2ecc71; 
+  }
+
+
+
+
+  
