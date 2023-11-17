@@ -28,17 +28,19 @@ import {
   var setting = document.getElementById("setting");
   var dec = document.getElementById("dec");
   var inc = document.getElementById("inc");
-  var modeBtn = document.getElementById("modeToggle");
   var modeTxt = document.getElementById("modeText");
   var wantedTemp = document.getElementById("wantedTemp");
   var decTemp = document.getElementById("decTemp");
   var incTemp = document.getElementById("incTemp");
+  var switchBox = document.getElementById("switch");
+  var radiatorImg = document.getElementById("radiatorImg");
+  var temperatureValue=document.getElementById("temperatureValue");
 
   inc.addEventListener("click", increase);
   dec.addEventListener("click", decrease);
   incTemp.addEventListener("click", increaseTemp);
   decTemp.addEventListener("click", decreaseTemp);
-  modeBtn.addEventListener("click", changeMode);
+  switchBox.addEventListener("click", changeMode);
   wantedTemp.addEventListener("change", newTemp);
 
   function newSetting() {
@@ -99,6 +101,43 @@ import {
     }
   }
 
+  function setRotation()
+  {
+    if(setting.value==0)
+    {
+      radiatorImg.style.transform = `rotate(${90}deg)`;
+    }
+
+    else if(setting.value==1)
+    {
+      radiatorImg.style.transform = `rotate(${60}deg)`;
+    }
+
+    else if(setting.value==2)
+    {
+      radiatorImg.style.transform = `rotate(${30}deg)`;
+    }
+
+    else if(setting.value==3)
+    {
+      radiatorImg.style.transform = `rotate(${0}deg)`;
+    }
+    else if(setting.value==4)
+    {
+      radiatorImg.style.transform = `rotate(${-30}deg)`;
+    }
+
+    else if(setting.value==5)
+    {
+      radiatorImg.style.transform = `rotate(${-60}deg)`;
+    }
+
+    else if(setting.value==6)
+    {
+      radiatorImg.style.transform = `rotate(${-90}deg)`;
+    }
+  }
+
 
   function Load() {
     const dbRef = ref(db);
@@ -109,13 +148,16 @@ import {
             humidity.innerHTML = "Humidity: " + snapshot.val().hum +"%";
             setting.value = snapshot.val().setting;
             wantedTemp.value = snapshot.val().wantedtemp;
+            temperatureValue.innerHTML = wantedTemp.value +" °C";
             if(snapshot.val().auto == 1)
             {
               modeTxt.innerHTML = "ON";
+              switchBox.checked = true;
             }
             else
             {
               modeTxt.innerHTML = "OFF";
+              switchBox.checked = false;
             }
         }
         else {
@@ -125,6 +167,7 @@ import {
         console.error(error);
       });
     checkMode();
+    setRotation();
   }
 
   function decrease()
@@ -164,5 +207,5 @@ import {
   }
 
   Load();
-  window.setInterval(Load, 500);
+  window.setInterval(Load, 200);
 
