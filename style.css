@@ -4,6 +4,7 @@
     color: white;
     font-family: 'Lato', sans-serif;
     -webkit-tap-highlight-color: transparent;
+    user-select: none;
 }
 
 .body{
